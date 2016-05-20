@@ -1,0 +1,11 @@
+// Place all the styles related to the game controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.video-overlay {
+  position: absolute;
+  width: 640px;
+  min-height: 430px;
+  z-index: 300000;
+  text-align: center;
+}
