@@ -103,6 +103,7 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    pg (0.18.4)
     plex-ruby (1.5.3)
       nokogiri
     rack (1.6.4)
@@ -183,6 +184,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-facebook (~> 3.0)
+  pg
   plex-ruby (~> 1.5)
   rails (= 4.2.6)
   redis
