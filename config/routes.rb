@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/play/new' => 'game#play'
   get '/play/video' => 'game#video'
   get '/play/validate' => 'game#validate'
+  get '/leaderboard' => 'game#leaderboard'
 
   root :to => 'home#index'
 

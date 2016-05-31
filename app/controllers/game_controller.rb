@@ -37,10 +37,24 @@ class GameController < ApplicationController
 
   def validate
     data = JSON.parse($redis.get params[:id])
+    result = data["answer_index"] == params[:answer].to_i
+
+    current_user.score += result ? 1 : -1
+    current_user.correct += 1 unless !result
+    current_user.incorrect += 1 unless result
+    current_user.save
 
     render json: {
-      :result => data["answer_index"] == params[:answer].to_i,
+      :result => result,
       :answer => data["answer_index"]
+    }
+  end
+
+  def leaderboard
+    users = User.order("score DESC").limit(15)
+
+    render json: {
+      :users => users
     }
   end
 end

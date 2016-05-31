@@ -4,6 +4,7 @@
 
 $ ->
   loadRound()
+  loadLeaderboard()
   
 
 loadRound = ->
@@ -32,6 +33,14 @@ loadRound = ->
       else
         link.addClass('alert')
         $($(".choice")[data["answer"]]).addClass('success')
+      loadLeaderboard()
       setTimeout ->
         loadRound spinner, hash
       , 2000
+
+loadLeaderboard = ->
+  $.ajax(url: "/leaderboard").done (data) ->
+    users = data["users"]
+    for user in users
+      console.log user
+      $("#leaderboard").html("<div class=\"small-1 large-2 columns\"><img src=\""+user["avatar_url"]+"\"/></div><div class=\"small-1 large-4 columns\">"+user["name"]+"</div><div class=\"small-1 large-2 columns\">"+user["score"].toString()+"</div><div class=\"small-1 large-2 columns\">"+user["correct"].toString()+"</div><div class=\"small-1 large-2 columns\">"+user["incorrect"].toString()+"</div>")

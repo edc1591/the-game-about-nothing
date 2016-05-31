@@ -1,20 +1,47 @@
 <input type="hidden" id="hash" value="<%= @hash %>" />
 
 <div class="row">
+
   <div class="small-12 large-6 columns">
-    <div class="flex-video">
-      <div class="video-overlay"><div id="spinner"></div></div>
-      <video src="" id="video" loop></video>
+    <div class="row">
+      <div class="small-12 large-12 columns">
+        <div class="flex-video">
+          <div class="video-overlay"><div id="spinner"></div></div>
+          <video src="" id="video" loop></video>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 large-10 columns">
+        <ul class="stack button-group">
+          <% @num_choices.times do |i| %>
+            <li><a href="#" class="button expanded choice" id="<%= i %>"></a></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="small-12 large-4 columns">
-    <ul class="stack button-group">
-      <% @num_choices.times do |i| %>
-        <li><a href="#" class="button expanded choice" id="<%= i %>"></a></li>
-      <% end %>
-    </ul>
+  <div class="small-12 large-6 columns">
+    <div class="row">
+      <div class="small-1 large-2 columns">
+
+      </div>
+      <div class="small-1 large-4 columns">
+        Name
+      </div>
+      <div class="small-1 large-2 columns">
+        Score
+      </div>
+      <div class="small-1 large-2 columns">
+        Correct
+      </div>
+      <div class="small-1 large-2 columns">
+        Incorrect
+      </div>
+      <div id="leaderboard"></div>
+    </div>
   </div>
+
 </div>
